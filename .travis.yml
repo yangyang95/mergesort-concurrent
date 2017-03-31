@@ -29,7 +29,6 @@ addons:
 # Build your code e.g. by calling make
 script:
   - make
-  - ./generateDocumentationAndDeploy.sh
 
 # Generate and deploy documentation
 after_success:
