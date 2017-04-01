@@ -104,7 +104,9 @@ static uint32_t build_list_from_file(llist_t *_list, const char *filename)
     char buffer[16];
 
     while (fgets(buffer, 16, fp) != NULL) {
-        list_add(_list, atol(buffer));
+        char *name = (char*)malloc(16);
+        strcpy(name, buffer);
+        list_add(_list, (val_t)name);
     }
 
     fclose(fp);
@@ -122,7 +124,6 @@ int main(int argc, char const *argv[])
     /* Read data */
     the_list = list_new();
     data_count = build_list_from_file(the_list, argv[2]);
-
     max_cut = MIN(thread_count, data_count);
 
     /* initialize tasks inside thread pool */
