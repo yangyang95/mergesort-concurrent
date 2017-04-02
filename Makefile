@@ -41,7 +41,7 @@ check: sort
 	@bash scripts/gen-random-numbers.sh $(NUM_OF_DATA) $(TEST_DATA_FILE)
 # Sort the testing data first to generate ground truth
 	@sort -g $(TEST_DATA_FILE) > $(SORTED_DATA_FILE)
-# Time for user program to sort the testing data, and ignore first the 3 lines of output.
+# Use sort implementation to sort the testing data, and ignore first 3 lines of output.
 # Because we only want the sorting result.
 	@./sort $(THREADS) $(TEST_DATA_FILE) | tail -n +4 > $(SORTED_RESULT)
 	@bash scripts/compare.sh $(SORTED_DATA_FILE) $(SORTED_RESULT)
