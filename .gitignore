@@ -7,6 +7,6 @@
 *.swp
 *.bak
 sort
-test_data/input.txt
+test_data/*.txt
 tools/util-average
 out/*
