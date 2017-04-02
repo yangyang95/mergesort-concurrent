@@ -53,6 +53,9 @@ repeat-test: sort tools/util-average
 	@bash scripts/repeat-test.sh $(THREADS) $(TEST_DATA_FILE) $(ITERATIONS)
 	@./tools/util-average ./out/repeat-test-result.dat
 
+plot: output.txt
+	gnuplot scripts/runtime.gp
+
 clean:
 	rm -f $(OBJS) sort
 	@rm -rf $(deps)
